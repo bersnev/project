@@ -27,7 +27,6 @@ server {
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param REDIRECT_STATUS 200;
-        fastcgi_pass 127.0.0.1:1234;
+        fastcgi_pass 127.0.0.1:9000;
     }
 }
-© 2019 GitHub, Inc.
