@@ -15,8 +15,8 @@ COPY nginx/sites/default /etc/nginx/conf.d/default.conf
 RUN mkdir /run/nginx/ && touch /run/nginx/nginx.pid && \
   touch /var/log/nginx/access.log && touch /var/log/nginx/error.log
 
-COPY 1.sh /1.sh
+COPY nginx.sh /nginx.sh
 
 EXPOSE 80
 
-CMD ["sh", "/1.sh"]
+CMD ["sh", "/nginx.sh"]
