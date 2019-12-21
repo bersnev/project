@@ -5,7 +5,11 @@ RUN  apk add wget nginx php7 php7-common php7-mbstring php7-session php7-json ph
   mkdir /var/www/dokuwiki && \
   tar -xzf /tmp/dokuwiki-stable.tgz -C /var/www/dokuwiki --strip-components 1 && \
   chown -R nginx:nginx /var/www/dokuwiki && \
-  chmod -R 777 /var/www/dokuwiki
+  chmod -R 777 /var/www/dokuwiki && \
+  /bin/bash -c "/usr/bin/mysqld_safe --skip-grant-tables &" && \
+  sleep 5 && \
+  mysql -u root -e "CREATE DATABASE mydb" && \
+  mysql -u root mydb < /tmp/dump.sql
 
 COPY nginx/sites/default /etc/nginx/conf.d/default.conf
 
