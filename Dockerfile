@@ -8,7 +8,7 @@ RUN  apk add wget nginx php7 php7-common php7-mbstring php7-session php7-json ph
   chmod -R 777 /var/www/dokuwiki
  
 ADD init_db.sh /tmp/init_db.sh
-RUN /tmp/init_db.sh
+RUN chmod +x /tmp/init_db.sh
   
 COPY nginx/sites/default /etc/nginx/conf.d/default.conf
 
